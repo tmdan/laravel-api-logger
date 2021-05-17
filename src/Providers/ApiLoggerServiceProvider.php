@@ -11,7 +11,7 @@ class ApiLoggerServiceProvider extends ServiceProvider
 {
     public function boot(Router $router)
     {
-        $this->loadMigrationsFrom(__DIR__ . '/../publishable/database/migrations');
+        $this->loadMigrationsFrom(__DIR__ . '/../../publishable/database/migrations');
 
         $router->aliasMiddleware('api.logger', ApiLoggerMiddleware::class);
     }
@@ -32,14 +32,14 @@ class ApiLoggerServiceProvider extends ServiceProvider
     public function registerConfigs()
     {
         $this->mergeConfigFrom(
-            __DIR__. '/../publishable/config/api-logger.php',
+            __DIR__. '/../../publishable/config/api-logger.php',
             'api-logger'
         );
     }
 
     public function registerPublishableResources()
     {
-        $publishablePath = dirname(__DIR__).'/publishable';
+        $publishablePath = __DIR__.'/../../publishable';
 
         $publishable = [
             'migrations' => [
