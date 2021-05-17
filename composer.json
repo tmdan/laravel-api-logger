@@ -1,6 +1,6 @@
 {
     "name": "tmdan/laravel-api-logger",
-    "description": "Api Requests Logger to database for Laravel framework",
+    "description": "Api Requests Logger for Laravel framework",
     "type": "library",
     "require": {
         "illuminate/support": "^v8.0.0",
@@ -23,7 +23,6 @@
     "keywords": [
         "tmdan"
     ],
-    "minimum-stability": "dev",
     "extra": {
         "laravel": {
             "providers": [
