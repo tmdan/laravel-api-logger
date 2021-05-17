@@ -21,6 +21,7 @@ class ApiLoggerServiceProvider extends ServiceProvider
     {
         $this->registerConfigs();
         $this->registerPublishableResources();
+        $this->registerConsoleCommands();
     }
 
 
