@@ -24,13 +24,12 @@ class ApiLoggerServiceProvider extends ServiceProvider
         $this->registerConsoleCommands();
     }
 
-
-    public function registerConsoleCommands()
+    private function registerConsoleCommands()
     {
         $this->commands(ApiLoggerClear::class);
     }
 
-    public function registerConfigs()
+    private function registerConfigs()
     {
         $this->mergeConfigFrom(
             __DIR__. '/../../publishable/config/api-logger.php',
@@ -38,7 +37,7 @@ class ApiLoggerServiceProvider extends ServiceProvider
         );
     }
 
-    public function registerPublishableResources()
+    private function registerPublishableResources()
     {
         $publishablePath = __DIR__.'/../../publishable';
 
