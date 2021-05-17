@@ -19,7 +19,7 @@ class ApiLoggerClear extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Clear the API log data table';
 
     /**
      * Create a new command instance.
@@ -38,7 +38,7 @@ class ApiLoggerClear extends Command
      */
     public function handle()
     {
-        DB::table('api_request_loggers')->truncate();
+        DB::table('api_loggers')->truncate();
 
         return 0;
     }
