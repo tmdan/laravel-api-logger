@@ -1,5 +1,5 @@
 {
-    "name": "tmdan/api-logger",
+    "name": "tmdan/laravel-api-logger",
     "description": "Api Requests Logger to database for Laravel framework",
     "type": "library",
     "require": {
