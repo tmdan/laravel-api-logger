@@ -2,7 +2,7 @@
 
 namespace Tmdan\ApiLogger\Providers;
 
-use App\Console\Commands\ApiLoggerClear;
+use Tmdan\ApiLogger\Console\Commands\ApiLoggerClear;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 use Tmdan\ApiLogger\Middleware\ApiLoggerMiddleware;
