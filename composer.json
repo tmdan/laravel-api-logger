@@ -1,0 +1,37 @@
+{
+    "name": "tmdan/api-logger",
+    "description": "Api Requests Logger to database for Laravel framework",
+    "type": "library",
+    "require": {
+        "illuminate/support": "^v8.0.0",
+        "php": "^7.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tmdan\\ApiLogger\\":"src"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "tmdan",
+            "email": "mukhammed.ne@gmail.com",
+            "role": "Developer",
+            "homepage": "https://www.linkedin.com/in/tmdan"
+        }
+    ],
+    "keywords": [
+        "tmdan"
+    ],
+    "minimum-stability": "dev",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Tmdan\\ApiLogger\\Providers\\ApiLoggerServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
