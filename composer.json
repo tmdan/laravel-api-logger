@@ -31,7 +31,7 @@
         }
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": false
     },
     "minimum-stability": "dev"
 }
