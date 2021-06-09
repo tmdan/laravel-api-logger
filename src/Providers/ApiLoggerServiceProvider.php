@@ -3,43 +3,27 @@
 namespace Tmdan\ApiLogger\Providers;
 
 use Tmdan\ApiLogger\Console\Commands\ApiLoggerClear;
-use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 use Tmdan\ApiLogger\Middleware\ApiLoggerMiddleware;
 
 class ApiLoggerServiceProvider extends ServiceProvider
 {
-    public function boot(Router $router)
+    public function boot()
     {
-        $this->loadMigrationsFrom(__DIR__ . '/../../publishable/database/migrations');
-
-        $router->aliasMiddleware('api.logger', ApiLoggerMiddleware::class);
+        $this->loadMigration();
+        $this->loadCommands();
+        $this->loadMiddleware();
+        $this->loadPublishableResources();
     }
-
 
     public function register()
     {
-        $this->registerConfigs();
-        $this->registerPublishableResources();
-        $this->registerConsoleCommands();
+        $this->registerConfig();
     }
 
-    private function registerConsoleCommands()
+    public function loadPublishableResources()
     {
-        $this->commands(ApiLoggerClear::class);
-    }
-
-    private function registerConfigs()
-    {
-        $this->mergeConfigFrom(
-            __DIR__. '/../../publishable/config/api-logger.php',
-            'api-logger'
-        );
-    }
-
-    private function registerPublishableResources()
-    {
-        $publishablePath = __DIR__.'/../../publishable';
+        $publishablePath = __DIR__ . '/../../publishable';
 
         $publishable = [
             'migrations' => [
@@ -56,4 +40,26 @@ class ApiLoggerServiceProvider extends ServiceProvider
         }
     }
 
+    public function registerConfig()
+    {
+        $this->mergeConfigFrom(
+            __DIR__ . '/../../publishable/config/api-logger.php',
+            'api-logger'
+        );
+    }
+
+    public function loadMiddleware()
+    {
+        $this->aliasMiddleware('api.logger', ApiLoggerMiddleware::class);
+    }
+
+    public function loadCommands()
+    {
+        $this->commands(ApiLoggerClear::class);
+    }
+
+    public function loadMigration()
+    {
+        $this->loadMigrationsFrom(__DIR__ . '/../../publishable/database/migrations');
+    }
 }

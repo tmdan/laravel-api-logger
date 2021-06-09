@@ -24,9 +24,20 @@ class ApiLoggerMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        $response = $next($request);
+        return $next($request);
+    }
 
-        if ($request->route()->getName() != "api.logger" && $this->enabled) {
+
+    /**
+     * Handle tasks after the response has been sent to the browser.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param \Illuminate\Http\Response $response
+     * @return void
+     */
+    public function terminate($request, $response)
+    {
+        if ($request->route()->getName() != "api.logger" && $this->enabled && $request->wantsJson()) {
 
             ApiLogger::create([
                 'request_full_url' => $request->fullUrl(),
@@ -42,9 +53,6 @@ class ApiLoggerMiddleware
             ]);
 
         }
-
-        return $response;
     }
-
 
 }
