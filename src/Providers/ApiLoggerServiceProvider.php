@@ -50,7 +50,7 @@ class ApiLoggerServiceProvider extends ServiceProvider
 
     public function loadMiddleware()
     {
-        $this->aliasMiddleware('api.logger', ApiLoggerMiddleware::class);
+        app('router')->aliasMiddleware('api.logger', ApiLoggerMiddleware::class);
     }
 
     public function loadCommands()
