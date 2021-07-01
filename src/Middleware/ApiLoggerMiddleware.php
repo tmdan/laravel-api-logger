@@ -46,7 +46,7 @@ class ApiLoggerMiddleware
                 'request_ip' => $request->ip(),
                 'request_header' => $request->header(),
                 'request_agent' => $request->header('User-Agent'),
-                'response_content' => $response->getData(true),
+                'response_content' => $response->getData(true) ?? null,
                 'response_status_code' => $response->getStatusCode(),
                 'user_id' => $request->user()->id ?? null,
                 'user_timezone' => $request->user()->timezone ?? null,
