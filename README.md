@@ -20,3 +20,16 @@ composer require tmdan/laravel-api-logger
 ```bash
 php artisan vendor:publish --provider="Tmdan\ApiLogger\Providers\ApiLoggerServiceProvider"
 ```
+
+3. Run commands:
+
+```bash
+php artisan migrate
+```
+
+4. Add to your .env file:
+
+```bash
+API_LOGGER_ENABLED=true
+```
+5. Done!
